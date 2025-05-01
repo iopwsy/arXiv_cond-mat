@@ -3,7 +3,7 @@ name: Update GitHub Pages
 on:
   schedule:
     # 每天 UTC 时间 00:00 运行（北京时间 12:30）
-    - cron: '30 4 * * *'
+    - cron: '30 4 * * 1-5'
   workflow_dispatch:  # 允许手动触发
 
 jobs:
@@ -21,6 +21,7 @@ jobs:
 
     - name: Generate content
       run: |
+        find docs/ -name "*.md" -delete
         pip install -r requirements.txt  # 如果有依赖需要安装
         python main.py --base_url ${{ secrets.BASE_URL }} --model ${{ secrets.MODEL }} --api_key ${{ secrets.API_KEY }} --outdir docs/
 
