@@ -20,7 +20,7 @@ def main(api_key:str,
             ))
         content = "\n\n".join(["\n".join([f"{key}:{value}" for key,value in entry.items()]) for entry in data])
         messages = [
-                    {"role": "system", "content": "总结今天arXiv有关凝聚态物理的文章"},
+                    {"role": "system", "content": "用中文总结今天arXiv有关凝聚态物理的文章，带上文章链接"},
                     {"role": "user", "content": content},
                    ]
         client = OpenAI(api_key=api_key,
@@ -30,11 +30,10 @@ def main(api_key:str,
                                                   messages=messages,
                                                   stream=False,
                                                   )
-        content = f"""---
-        title: 自动更新arXiv凝聚态物理的文章
-        date: {day.isoformat()}
-        ---
-        这是自动生成的凝聚态物理的文章总结：
+        content = f"""
+        标题: 自动更新arXiv凝聚态物理的文章
+        更新时间: {day.isoformat()}
+        这是DeepSeek V3 自动生成的凝聚态物理的文章总结：
         {response.choices[0].message.content}
         """
         with open(f"{outdir}/arXiv.md",'a') as f:
