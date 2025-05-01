@@ -4,7 +4,7 @@ from openai import OpenAI
 def main(api_key:str,
          base_url:str,
          model:str,
-         output:str):
+         outdir:str):
     url="https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
@@ -36,7 +36,7 @@ def main(api_key:str,
         这是自动生成的凝聚态物理的文章总结：
         {response.choices[0].message.content}
         """
-        with open(f"{output}/arXiv.md",'a') as f:
+        with open(f"{outdir}/arXiv.md",'a') as f:
             f.write(content)
 
 if __name__ == "__main__":
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     parser.add_argument('--api_key', required=True)
     parser.add_argument('--base_url', required=False,default="https://models.github.ai/inference")
     parser.add_argument('--model', required=False,default="deepseek/DeepSeek-V3-0324")
-    parser.add_argument('--output', required=True)
+    parser.add_argument('--outdir', required=True)
     
     args = parser.parse_args()
-    main(api_key=api_key,base_url=base_url,model=model,output=output)
+    main(api_key=api_key,base_url=base_url,model=model,outdir=outdir)
