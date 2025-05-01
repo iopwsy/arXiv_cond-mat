@@ -19,7 +19,7 @@ def main(api_key:str,
             ))
         content = "\n\n".join(["\n".join([f"{key}:{value}" for key,value in entry.items()]) for entry in data])
         messages = [
-                    {"role": "system", "content": ”总结今天arXiv有关凝聚态物理的文章“},
+                    {"role": "system", "content": "总结今天arXiv有关凝聚态物理的文章"},
                     {"role": "user", "content": content},
                    ]
         client = OpenAI(api_key=api_key,
