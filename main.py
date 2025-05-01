@@ -5,6 +5,7 @@ def main(api_key:str,
          base_url:str,
          model:str,
          outdir:str):
+    day = datetime.datetime.now()
     url="https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
@@ -31,7 +32,7 @@ def main(api_key:str,
                                                   )
         content = f"""---
         title: 自动更新arXiv凝聚态物理的文章
-        date: {datetime.datetime.now().isoformat()}
+        date: {day.isoformat()}
         ---
         这是自动生成的凝聚态物理的文章总结：
         {response.choices[0].message.content}
