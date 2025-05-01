@@ -23,7 +23,7 @@
   <script>
     // 从 URL 参数获取要展示的 Markdown 文件
     const params = new URLSearchParams(window.location.search);
-    const mdFile = params.get('file') || 'README.md';
+    const mdFile = params.get('file') || 'arXiv.md';
 
     // 加载并渲染 Markdown
     fetch(mdFile)
