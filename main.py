@@ -47,4 +47,7 @@ if __name__ == "__main__":
     parser.add_argument('--outdir', required=True)
     
     args = parser.parse_args()
-    main(api_key=api_key,base_url=base_url,model=model,outdir=outdir)
+    main(api_key=args.api_key,
+         base_url=args.base_url,
+         model=args.model,
+         outdir=args.outdir)
