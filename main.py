@@ -14,7 +14,7 @@ def main(api_key:str,
         for i,entry in enumerate(feed.entries):
             title = entry['title']
             abstract = entry['summary'].split('Abstract: ')[-1]
-            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['authors']}\nabstract\n\n"
+            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['authors']}\n{abstract}\n\n"
         messages = [
                     {"role": "system", "content": "用户将发送当天arXiv有关凝聚态物理的论文，请用中文总结今天凝聚态相关文章，包括新的理论、计算和实验的进展，带上文章链接"},
                     {"role": "user", "content": content},
