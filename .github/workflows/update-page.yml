@@ -4,6 +4,7 @@ on:
   schedule:
     # 每天 UTC 时间 05:10 运行（北京时间 13:10）
     - cron: '10 5 * * 1-5'
+  workflow_dispatch:      # 添加手动触发功能
 
 jobs:
   update-content:
