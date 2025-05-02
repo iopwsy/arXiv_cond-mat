@@ -19,6 +19,9 @@ def main(api_key:str,
                     {"role": "system", "content": "用户将发送当天arXiv有关凝聚态物理的论文，请用中文总结今天凝聚态相关文章，包括新的理论、计算和实验的进展，带上文章链接"},
                     {"role": "user", "content": content},
                    ]
+        if os.path.exists("README.md"):
+            os.remove("README.md")
+        filestart = "### 自动更新arXiv凝聚态物理的文章\n  - **代码更新时间** {day.isoformat()}\n  - **arXiv更新时间** {update_date.isoformat()}\n  - **更多信息**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n"
         try:
             client = OpenAI(api_key=api_key,
                             base_url=base_url)
@@ -27,33 +30,17 @@ def main(api_key:str,
                                                       messages=messages,
                                                       stream=False,
                                                       )
-            os.remove("README.md")
-            content = f"""
-            ### 自动更新arXiv凝聚态物理的文章
-             - **代码更新时间** {day.isoformat()}
-             - **arXiv更新时间** {update_date.isoformat()}
-            {response.choices[0].message.content}
-            """
-            with open("README.md",'a') as f:
-                f.write(content)
+            content = f"{filestart}\n{response.choices[0].message.content}"
         except:
-            content = f"""
-            ### 自动更新arXiv凝聚态物理的文章
-             - **代码更新时间** {day.isoformat()}
-             - **arXiv更新时间** {update_date.isoformat()}
-             - **更多信息**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)
-            ### LLM运行出错，以下是arXiv原文
-            {content}
-            """
-            with open("README.md",'a') as f:
-                f.write(content)
+            content = f"{filestart}\n### LLM运行出错，以下是arXiv原文\n\n{content}"
+        with open("README.md",'a') as f:
+            f.write(content)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', required=True)
     parser.add_argument('--base_url', required=False,default="https://models.github.ai/inference")
-    parser.add_argument('--model', required=False,default="deepseek/DeepSeek-V3-0324")
-    
+    parser.add_argument('--model', required=False,default="deepseek/DeepSeek-V3-0324")    
     args = parser.parse_args()
     main(api_key=args.api_key,
          base_url=args.base_url,
