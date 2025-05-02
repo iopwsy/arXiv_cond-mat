@@ -3,51 +3,47 @@ from openai import OpenAI
 
 def main(api_key:str,
          base_url:str,
-         model:str,
-         outdir:str):
+         model:str):
     day = datetime.datetime.now()
     url="https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
-    data = []
     if update_date.strftime("%Y-%m-%d") == day.strftime("%Y-%m-%d"):
+        content = ""
         for entry in feed.entries:
-            data.append(dict(
-                title=entry['title'],
-                link=entry['link'],
-                authors=entry['author'],
-                abstract=entry['summary'].split('Abstract: ')[-1]
-            ))
-        content = "\n\n".join(["\n".join([f"{key}:{value}" for key,value in entry.items()]) for entry in data])
+            abstract=entry['summary'].split('Abstract: ')[-1]
+            content += f"title:{entry['title']}\nlink:{entry['link']}\nauthors:{entry['author']}abstract:{abstract}"
         messages = [
-                    {"role": "system", "content": "用中文总结今天arXiv有关凝聚态物理的文章，带上文章链接"},
+                    {"role": "system", "content": "用户将发送当天arXiv有关凝聚态物理的论文，请用中文总结今天凝聚态相关文章，包括新的理论、计算和实验的进展，带上文章链接"},
                     {"role": "user", "content": content},
                    ]
-        client = OpenAI(api_key=api_key,
-                        base_url=base_url)
-        response = client.chat.completions.create(
-                                                  model=model,
-                                                  messages=messages,
-                                                  stream=False,
-                                                  )
-        content = f"""
-        标题: 自动更新arXiv凝聚态物理的文章
-        更新时间: {day.isoformat()}
-        这是DeepSeek V3 自动生成的凝聚态物理的文章总结：
-        {response.choices[0].message.content}
-        """
-        with open(f"{outdir}/arXiv.md",'a') as f:
-            f.write(content)
+        try:
+            client = OpenAI(api_key=api_key,
+                            base_url=base_url)
+            response = client.chat.completions.create(
+                                                      model=model,
+                                                      messages=messages,
+                                                      stream=False,
+                                                      )
+            content = f"""
+            ### 标题
+            自动更新arXiv凝聚态物理的文章
+             - **代码更新时间** {day.isoformat()}
+             - **arXiv更新时间** {update_date.isoformat()}
+            {response.choices[0].message.content}
+            """
+            with open("README.md",'a') as f:
+                f.write(content)
+        except:
+            pass
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--api_key', required=True)
     parser.add_argument('--base_url', required=False,default="https://models.github.ai/inference")
     parser.add_argument('--model', required=False,default="deepseek/DeepSeek-V3-0324")
-    parser.add_argument('--outdir', required=True)
     
     args = parser.parse_args()
     main(api_key=args.api_key,
          base_url=args.base_url,
-         model=args.model,
-         outdir=args.outdir)
+         model=args.model)
