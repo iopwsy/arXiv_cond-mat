@@ -2,8 +2,8 @@ name: Update
 
 on:
   schedule:
-    # 每天 UTC 时间 06:30 运行（北京时间 14:30）
-    - cron: '30 6 * * 1-5'
+    # 每天 UTC 时间 07:10 运行（北京时间 15:10）
+    - cron: '10 7 * * 1-5'
 
 jobs:
   update-content:
