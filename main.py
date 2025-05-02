@@ -28,8 +28,7 @@ def main(api_key:str,
                                                       )
             os.remove("README.md")
             content = f"""
-            ### 标题
-            自动更新arXiv凝聚态物理的文章
+            ### 自动更新arXiv凝聚态物理的文章
              - **代码更新时间** {day.isoformat()}
              - **arXiv更新时间** {update_date.isoformat()}
             {response.choices[0].message.content}
