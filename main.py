@@ -11,9 +11,10 @@ def main(api_key:str,
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
     if update_date.strftime("%Y-%m-%d") == day.strftime("%Y-%m-%d"):
         content = ""
-        for entry in feed.entries:
-            abstract=entry['summary'].split('Abstract: ')[-1]
-            content += f"title:{entry['title']}\nlink:{entry['link']}\nauthors:{entry['author']}abstract:{abstract}"
+        for i,entry in feed.entries:
+            title = entry['title']
+            abstract = entry['summary'].split('Abstract: ')[-1]
+            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['authors']}\nabstract\n\n"
         messages = [
                     {"role": "system", "content": "用户将发送当天arXiv有关凝聚态物理的论文，请用中文总结今天凝聚态相关文章，包括新的理论、计算和实验的进展，带上文章链接"},
                     {"role": "user", "content": content},
@@ -36,7 +37,15 @@ def main(api_key:str,
             with open("README.md",'a') as f:
                 f.write(content)
         except:
-            pass
+            content = f"""
+            ### 自动更新arXiv凝聚态物理的文章
+             - **代码更新时间** {day.isoformat()}
+             - **arXiv更新时间** {update_date.isoformat()}
+            ### LLM运行出错，以下是arXiv原文
+            {content}
+            """
+            with open("README.md",'a') as f:
+                f.write(content)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
