@@ -1,7 +1,7 @@
 ### 自动更新arXiv凝聚态物理的文章
  - **代码更新时间** 2025-05-02T04:21:05.021272
  - **arXiv更新时间** 2025-05-02T00:00:00
- - **更多信息**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n
+ - **更多信息**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)
 
 ---
 
