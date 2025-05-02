@@ -21,7 +21,6 @@ jobs:
 
     - name: Generate content
       run: |
-        find -name "README.md" -delete        
         pip install -r requirements.txt  # 如果有依赖需要安装
         python main.py --base_url ${{ secrets.BASE_URL }} --model ${{ secrets.MODEL }} --api_key ${{ secrets.API_KEY }}
 
