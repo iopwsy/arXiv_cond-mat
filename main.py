@@ -33,6 +33,8 @@ def main(api_key:str,
             content = f"{filestart}\n{response.choices[0].message.content}"
         except:
             content = f"{filestart}\n### LLM运行出错，以下是arXiv原文\n\n{content}"
+        if not os.path.exists("data"):
+            os.mkdir("data")
         with open(day.strftime("data/%Y-%m-%d.md"),'a') as f:
             f.write(content)
         with open("README.md",'a') as f:
