@@ -1,88 +1,56 @@
 ### 自动更新arXiv凝聚态物理的文章
-  - **代码更新时间** 2025-05-02T06:46:57.213104
+  - **代码更新时间** 2025-05-02T07:28:47.694148
   - **arXiv更新时间** 2025-05-02T00:00:00
   - **demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)
   - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)
 
-以下是今天arXiv上关于凝聚态物理的重要论文总结，涵盖理论、计算和实验进展：
+以下是2024年5月1日arXiv上与凝聚态物理相关的重要论文总结，涵盖理论、计算和实验进展：
 
----
+### 1. **量子临界金属中的声子诱导能量弛豫**
+- **文章链接**: [Phonon Induced Energy Relaxation in Quantum Critical Metals](https://arxiv.org/abs/2505.00067)
+- **进展**: 研究了量子临界金属中电子自由度通过声子耦合的能量弛豫机制，提出了边际费米液体中能量弛豫率的普适温度依赖性理论。
 
-### **1. 量子临界金属中的声子诱导能量弛豫**
-- **文章**: [Phonon Induced Energy Relaxation in Quantum Critical Metals](https://arxiv.org/abs/2505.00067)  
-- **作者**: Haoyu Guo, Debanjan Chowdhury  
-- **亮点**: 研究了量子临界金属中声子对电子能量弛豫的影响，揭示了非费米液体行为与声子耦合的关联。
+### 2. **非均匀超导体中的超流权重**
+- **文章链接**: [Superfluid Weight of Inhomogeneous Superconductors](https://arxiv.org/abs/2505.00069)
+- **进展**: 推导了考虑配对势响应的超流权重表达式，发现空间非均匀性会显著修正超流权重，尤其在涡旋存在时传统方法会给出定性错误结果。
 
----
+### 3. **d波交变磁体KV2Se2O中的SDW驱动"磁击穿"**
+- **文章链接**: [SDW driven "magnetic breakdown" in a d-wave altermagnet KV2Se2O](https://arxiv.org/abs/2505.00074)
+- **进展**: 通过第一性原理计算揭示了自旋密度波相变导致的能带简并解除和费米面重构，解释了输运性质的显著变化。
 
-### **2. 非均匀超导体的超流权重**
-- **文章**: [Superfluid Weight of Inhomogeneous Superconductors](https://arxiv.org/abs/2505.00069)  
-- **作者**: Jonathan Schirmer, Enrico Rossi  
-- **亮点**: 提出了非均匀超导体中超流权重的理论框架，为理解超导态的空间调制提供了新视角。
+### 4. **条件生成方法加速材料发现**
+- **文章链接**: [Materials discovery acceleration by using condition generative methodology](https://arxiv.org/abs/2505.00076)
+- **进展**: 开发了PODGen框架，将生成模型与性质预测模型结合，成功设计新型拓扑绝缘体，生成成功率比无约束方法提高5.3倍。
 
----
+### 5. **EuAuSb中的螺旋型交变磁性**
+- **文章链接**: [EuAuSb: A helical variation on altermagnetism](https://arxiv.org/abs/2505.00081)
+- **进展**: 中子衍射发现EuAuSb中存在面内螺旋磁序，磁场可诱导量子自旋涨落，电子结构计算显示自旋劈裂能带，提出这是螺旋型交变磁体。
 
-### **3. d波交变磁体KV₂Se₂O中的SDW驱动“磁击穿”**
-- **文章**: [SDW driven "magnetic breakdown" in a d-wave altermagnet KV₂Se₂O](https://arxiv.org/abs/2505.00074)  
-- **作者**: Xu Yan等  
-- **亮点**: 实验发现自旋密度波（SDW）诱导的磁击穿现象，为交变磁体的电子结构调控提供了新途径。
+### 6. **非平衡条件下约瑟夫森干涉仪中的二极管效应**
+- **文章链接**: [Josephson Diode Effect from Nonequilibrium Current in a Superconducting Interferometer](https://arxiv.org/abs/2505.00085)
+- **进展**: 证明在对称约瑟夫森结中，仅通过非平衡耗散电流即可产生二极管效应，无需破坏空间反演对称性，二极管系数可超过理想值。
 
----
+### 7. **非线性热电效应探测量子几何**
+- **文章链接**: [Nonlinear thermoelectric effects as a means to probe quantum geometry](https://arxiv.org/abs/2505.00086)
+- **进展**: 推导了由Berry曲率偶极子和量子度量偶极子主导的非线性热电效应，提出了直接测量Weyl点手性的量化热电响应。
 
-### **4. 材料发现的生成方法加速**
-- **文章**: [Materials discovery acceleration by using condition generative methodology](https://arxiv.org/abs/2505.00076)  
-- **作者**: Caiyuan Ye等  
-- **亮点**: 结合条件生成模型与高通量计算，显著提升了新型功能材料的预测效率。
+### 8. **HgBa2Ca2Cu3O8+δ中主导的顶氧电子-声子耦合**
+- **文章链接**: [Dominant apical-oxygen electron-phonon coupling in HgBa2Ca2Cu3O8+δ](https://arxiv.org/abs/2505.00223)
+- **进展**: 共振非弹性X射线散射发现70meV声子泛频阶梯，定量分析表明顶氧声子耦合强度(0.25eV)远大于面内伸缩模，为理解铜氧化物超导机制提供新视角。
 
----
+### 9. **零维系统中的Wilson多边形拓扑**
+- **文章链接**: [Wilson polygons and the topology of zero-dimensional systems](https://arxiv.org/abs/2505.00226)
+- **进展**: 提出用离散Wilson多边形定义零维分子系统的Berry相位和拓扑不变量，在环对苯撑和异硫茚分子中发现Z2拓扑序和边界态。
 
-### **5. 约瑟夫森二极管效应的非平衡机制**
-- **文章**: [Josephson Diode Effect from Nonequilibrium Current in a Superconducting Interferometer](https://arxiv.org/abs/2505.00085)  
-- **作者**: Daniel Shaffer等  
-- **亮点**: 在超导干涉仪中观测到非平衡电流驱动的约瑟夫森二极管效应，为超导电子学器件设计提供了新思路。
+### 10. **量子反常霍尔多层膜中的层间耦合诱导量子相变**
+- **文章链接**: [Interlayer Coupling-Induced Quantum Phase Transition in Quantum Anomalous Hall Multilayers](https://arxiv.org/abs/2505.00117)
+- **进展**: 通过分子束外延调控中间磁性拓扑绝缘层厚度，实现了C=1到C=2量子反常霍尔态的可控相变，为手性边缘电流器件设计提供新思路。
 
----
+### 其他重要进展：
+- 开发了基于QR分解的二维张量网络收缩加速算法([2505.00494])
+- 在YBa2Cu3O6.48中观测到三维光致超导特征([2505.00514])
+- 发现CrSb薄膜在10nm厚度仍保持室温d波交变磁性能带劈裂([2505.00239])
+- 提出了区分拓扑霍尔效应与反常霍尔效应的新方法([2505.00565])
+- 开发了结合积分方程闭包与力密度泛函理论研究非均匀流体的新框架([2410.18680])
 
-### **6. 非线性热电效应探测量子几何**
-- **文章**: [Nonlinear thermoelectric effects as a means to probe quantum geometry](https://arxiv.org/abs/2505.00086)  
-- **作者**: Xu Yang, Brian Skinner  
-- **亮点**: 提出利用非线性热电效应测量能带几何性质（如量子度规和贝里曲率）的新方法。
-
----
-
-### **7. 量子反常霍尔多层中的层间耦合诱导相变**
-- **文章**: [Interlayer Coupling-Induced Quantum Phase Transition in Quantum Anomalous Hall Multilayers](https://arxiv.org/abs/2505.00117)  
-- **作者**: Ling-Jie Zhou等  
-- **亮点**: 实验证实层间耦合可导致量子反常霍尔体系中的拓扑相变，为调控拓扑态开辟了新途径。
-
----
-
-### **8. 二维磁性半导体的扭转工程**
-- **文章**: [Twist Engineering of Anisotropic Excitonic and Optical Properties of a Two-Dimensional Magnetic Semiconductor](https://arxiv.org/abs/2505.00123)  
-- **作者**: Qiuyang Li等  
-- **亮点**: 通过扭转角度调控二维磁性半导体的激子各向异性和光学响应，为自旋光电器件设计提供基础。
-
----
-
-### **9. 铜酸盐超导体HgBa₂Ca₂Cu₃O₈+δ中声子耦合的主导作用**
-- **文章**: [Dominant apical-oxygen electron-phonon coupling in HgBa₂Ca₂Cu₃O₈+δ](https://arxiv.org/abs/2505.00223)  
-- **作者**: Wenshan Hong等  
-- **亮点**: 通过共振X射线散射发现顶氧声子对高Tc超导配对的关键贡献。
-
----
-
-### **10. 活性物质的三维扩展与粒子-壁相互作用**
-- **文章**: [Expanding Active Matter to the Third Dimension](https://arxiv.org/abs/2505.00141)  
-- **作者**: Sandeep Ramteke等  
-- **亮点**: 研究了三维活性物质中短程和长程粒子-壁相互作用的动力学行为。
-
----
-
-### **其他重要进展**
-- **拓扑同步**: [Global Topological Dirac Synchronization](https://arxiv.org/abs/2410.15338) 提出狄拉克锥同步的拓扑框架。  
-- **量子玻璃性**: [Efficient Learning Implies Quantum Glassiness](https://arxiv.org/abs/2505.00087) 揭示高效学习与量子玻璃态的关联。  
-- **光诱导超导**: [Signatures of 3D photo-induced superconductivity in YBa₂Cu₃O₆.₄₈](https://arxiv.org/abs/2505.00514) 观测到光激发下铜氧化物的三维超导特征。
-
----
-
-如需更详细的某篇论文解析，请随时告知！
+这些工作展示了凝聚态物理在强关联系统、拓扑物态、超导机制、量子计算和材料设计等方向的丰富进展。
