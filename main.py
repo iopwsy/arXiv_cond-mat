@@ -21,7 +21,7 @@ def main(api_key:str,
                    ]
         if os.path.exists("README.md"):
             os.remove("README.md")
-        filestart = "### 自动更新arXiv凝聚态物理的文章\n  - **代码更新时间** {day.isoformat()}\n  - **arXiv更新时间** {update_date.isoformat()}\n  -**demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)\n  - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n"
+        filestart = f"### 自动更新arXiv凝聚态物理的文章\n  - **代码更新时间** {day.isoformat()}\n  - **arXiv更新时间** {update_date.isoformat()}\n  -**demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)\n  - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n"
         try:
             client = OpenAI(api_key=api_key,
                             base_url=base_url)
