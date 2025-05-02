@@ -1,9 +1,10 @@
-name: Update GitHub Pages
+name: Update
 
 on:
   schedule:
-    # 每天 UTC 时间 00:00 运行（北京时间 12:30）
-    - cron: '30 4 * * 1-5'
+    # 每天 UTC 时间 00:00 运行（北京时间 14:30）
+    - cron: '30 6 * * 1-5'
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   update-content:
@@ -20,9 +21,9 @@ jobs:
 
     - name: Generate content
       run: |
-        find docs/ -name "*.md" -delete
+        find -name "README.md" -delete        
         pip install -r requirements.txt  # 如果有依赖需要安装
-        python main.py --base_url ${{ secrets.BASE_URL }} --model ${{ secrets.MODEL }} --api_key ${{ secrets.API_KEY }} --outdir docs/
+        python main.py --base_url ${{ secrets.BASE_URL }} --model ${{ secrets.MODEL }} --api_key ${{ secrets.API_KEY }}
 
     - name: Commit changes
       env:
@@ -30,6 +31,6 @@ jobs:
       run: |
         git config --global user.name ${{ secrets.USER }}
         git config --global user.email ${{ secrets.EMAIL }}
-        git add docs/
+        git add README.md
         git commit -m "Auto-update content" || echo "No changes to commit"
         git push
