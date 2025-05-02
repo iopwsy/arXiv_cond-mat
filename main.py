@@ -41,6 +41,7 @@ def main(api_key:str,
             ### 自动更新arXiv凝聚态物理的文章
              - **代码更新时间** {day.isoformat()}
              - **arXiv更新时间** {update_date.isoformat()}
+             - **更多信息**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)
             ### LLM运行出错，以下是arXiv原文
             {content}
             """
