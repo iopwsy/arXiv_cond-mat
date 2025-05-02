@@ -1,7 +1,7 @@
 ### 自动更新arXiv凝聚态物理的文章
   - **代码更新时间** 2025-05-02T06:46:57.213104
   - **arXiv更新时间** 2025-05-02T00:00:00
-  -**demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)
+  - **demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)
   - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)
 
 以下是今天arXiv上关于凝聚态物理的重要论文总结，涵盖理论、计算和实验进展：
