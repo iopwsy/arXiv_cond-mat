@@ -1,5 +1,6 @@
 import datetime, argparse, feedparser
 from openai import OpenAI
+import os
 
 def main(api_key:str,
          base_url:str,
@@ -25,6 +26,7 @@ def main(api_key:str,
                                                       messages=messages,
                                                       stream=False,
                                                       )
+            os.remove("README.md")
             content = f"""
             ### 标题
             自动更新arXiv凝聚态物理的文章
