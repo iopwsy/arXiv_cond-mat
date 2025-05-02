@@ -11,7 +11,7 @@ def main(api_key:str,
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
     if update_date.strftime("%Y-%m-%d") == day.strftime("%Y-%m-%d"):
         content = ""
-        for i,entry in feed.entries:
+        for i,entry in enumerate(feed.entries):
             title = entry['title']
             abstract = entry['summary'].split('Abstract: ')[-1]
             content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['authors']}\nabstract\n\n"
