@@ -1,6 +1,5 @@
-import datetime, argparse, feedparser
+import datetime, argparse, feedparser, time, os
 from openai import OpenAI
-import os
 
 def main(api_key:str,
          base_url:str,
