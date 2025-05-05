@@ -8,7 +8,7 @@ def main(api_key:str,
     day = datetime.datetime.now()
     url = "https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
-    update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
+    update_date = datetime.datetime.fromtimestamp(time.mktime(entry['published_parsed']))
     if update_date.strftime("%Y-%m-%d") == day.strftime("%Y-%m-%d"):
         content = ""
         for i,entry in enumerate(feed.entries):
