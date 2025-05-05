@@ -6,7 +6,7 @@ def main(api_key:str,
          base_url:str,
          model:str):
     day = datetime.datetime.now()
-    url="https://rss.arxiv.org/rss/cond-mat"
+    url = "https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
     update_date = datetime.datetime.strptime("-".join(feed['feed']['published'].split(' ')[1:4]),'%d-%b-%Y')
     if update_date.strftime("%Y-%m-%d") == day.strftime("%Y-%m-%d"):
@@ -14,7 +14,7 @@ def main(api_key:str,
         for i,entry in enumerate(feed.entries):
             title = entry['title']
             abstract = entry['summary'].split('Abstract: ')[-1]
-            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['authors']}\n{abstract}\n\n"
+            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['author']}\n{abstract}\n\n"
         with open(day.strftime("data/%Y-%m-%d_origin.md"),'a') as f:
             f.write(content)
         messages = [
@@ -23,7 +23,7 @@ def main(api_key:str,
                    ]
         if os.path.exists("README.md"):
             os.remove("README.md")
-        filestart = f"### 自动更新arXiv凝聚态物理的文章\n  - **代码更新时间** {day.isoformat()}\n  - **arXiv更新时间** {update_date.isoformat()}\n  - **demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)  - **源代码** [arXiv凝聚态物理每日导读代码](https://github.com/iopwsy/arXiv_cond-mat/)\n  - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n"
+        filestart = f"### 自动更新arXiv凝聚态物理的文章\n  - **代码更新时间** {day.isoformat()}\n  - **arXiv更新时间** {update_date.isoformat()}\n  - **demo页面** [arXiv凝聚态物理每日导读](https://iopwsy.github.io/arXiv_cond-mat/)\n  - **源代码** [arXiv凝聚态物理每日导读代码](https://github.com/iopwsy/arXiv_cond-mat/)\n  - **更多体验**: [MatElab平台](https://in.iphy.ac.cn/eln/#/recday)\n"
         try:
             client = OpenAI(api_key=api_key,
                             base_url=base_url)
