@@ -13,7 +13,7 @@ def main(api_key:str,
         for i,entry in enumerate(feed.entries):
             title = entry['title']
             abstract = entry['summary'].split('Abstract: ')[-1]
-            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n{entry['author']}\n{abstract}\n\n"
+            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n\n{entry['author']}\n\n{abstract}\n\n"
         with open(day.strftime("data/%Y-%m-%d_origin.md"),'a') as f:
             f.write(content)
         messages = [
@@ -50,3 +50,4 @@ if __name__ == "__main__":
     main(api_key=args.api_key,
          base_url=args.base_url,
          model=args.model)
+
