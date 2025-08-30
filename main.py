@@ -9,11 +9,7 @@ def main(api_key:str,
     feed = feedparser.parse(url)
     update_date = datetime.datetime.fromtimestamp(time.mktime(feed.feed['published_parsed']))
     if update_date.date() == day.date():
-        content = ""
-        for i,entry in enumerate(feed.entries):
-            title = entry['title']
-            abstract = entry['summary'].split('Abstract: ')[-1]
-            content += f"[{i+1}]. [*{title}*]({entry['link']} \"{title}\")\n\n{entry['author']}\n\n{abstract}\n\n"
+        content = "\n\n".join([f"[{i+1}]. [*{entry['title']}*]({entry['link']} \"{entry['title']}\")\n\n{entry['author']}\n\n{entry['summary']}\n\n" for i,entry in enumerate(feed.entries)]) 
         with open(day.strftime("data/%Y-%m-%d_origin.md"),'a') as f:
             f.write(content)
         messages = [
@@ -50,4 +46,5 @@ if __name__ == "__main__":
     main(api_key=args.api_key,
          base_url=args.base_url,
          model=args.model)
+
 
