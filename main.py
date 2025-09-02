@@ -8,7 +8,7 @@ def main(api_key:str,
     url = "https://rss.arxiv.org/rss/cond-mat"
     feed = feedparser.parse(url)
     update_date = datetime.datetime.fromtimestamp(time.mktime(feed.feed['published_parsed']))
-    if update_date.date() == day.date():
+    if update_date.date() == day.date() and len(feed.entries) > 0:
         content = "\n\n".join([f"[{i+1}]. [*{entry['title']}*]({entry['link']} \"{entry['title']}\")\n\n{entry['author']}\n\n{entry['summary']}\n\n" for i,entry in enumerate(feed.entries)]) 
         with open(day.strftime("data/%Y-%m-%d_origin.md"),'a') as f:
             f.write(content)
@@ -46,5 +46,6 @@ if __name__ == "__main__":
     main(api_key=args.api_key,
          base_url=args.base_url,
          model=args.model)
+
 
 
